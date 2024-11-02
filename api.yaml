@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: caring-note-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: caring-note-api
+  template:
+    metadata:
+      labels:
+        app: caring-note-api
+    spec:
+      containers:
+      - name: caring-note-api
+        image: bsh998/caring-note-api:latest
+        env:
+          - name: SPRING_DATASOURCE_URL
+            value: "jdbc:postgresql://postgresql.default.svc.cluster.local:5432/caring_note"
+          - name: SPRING_DATASOURCE_USERNAME
+            value: "cnAdmin"
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: "caringNote2024!!"
+        ports:
+          - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: caring-note-api
+spec:
+  selector:
+    app: caring-note-api
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
