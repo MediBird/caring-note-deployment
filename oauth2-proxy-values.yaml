@@ -1,0 +1,19 @@
+config:
+  clientID: your-client-id
+  clientSecret: your-client-secret
+  provider: keycloak
+  redirectURL: https://your-domain.com/oauth2/callback
+  oidcIssuerURL: https://keycloak.your-domain.com/auth/realms/your-realm
+extraArgs:
+  scope: "openid email profile"
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+  hosts:
+    - your-domain.com
+  tls:
+    - secretName: your-domain-tls
+      hosts:
+        - your-domain.com

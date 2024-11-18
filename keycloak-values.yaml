@@ -1,0 +1,22 @@
+replicaCount: 1
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "250m"
+  limits:
+    memory: "1Gi"
+    cpu: "500m"
+postgresql:
+  enabled: false
+externalDatabase:
+  host: postgresql.default.svc.cluster.local
+  database: caring_note
+  user: cnAdmin
+  password: caringnote2024!!
+extraEnv: |
+  - name: PROXY_ADDRESS_FORWARDING
+    value: "true"
+  - name: KEYCLOAK_USER
+    value: cn-admin
+  - name: KEYCLOAK_PASSWORD
+    value: caringNote@2024

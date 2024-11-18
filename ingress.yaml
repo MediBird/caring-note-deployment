@@ -1,0 +1,26 @@
+# ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: medical-app-ingress
+  namespace: medical-app
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
+spec:
+  tls:
+  - hosts:
+    - your-domain.com
+    secretName: your-domain-tls
+  rules:
+  - host: your-domain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: oauth2-proxy-release
+            port:
+              number: 80
+
