@@ -2,25 +2,32 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: medical-app-ingress
-  namespace: medical-app
+  name: caringnote-ingress
+  namespace: default
   annotations:
-    kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-cluster-issuer
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
-    - your-domain.com
-    secretName: your-domain-tls
+    - caringnote.co.kr
+    secretName: caringnote-tls
   rules:
-  - host: your-domain.com
+  - host: caringnote.co.kr
     http:
       paths:
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: caring-note-api
+            port:
+              number: 8080
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: oauth2-proxy-release
+            name: caring-note-web
             port:
               number: 80
 
