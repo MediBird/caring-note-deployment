@@ -1,6 +1,5 @@
 helm install postgres bitnami/postgresql -n  -f postgres/values.yaml
-helm repo add codecentric https://codecentric.github.io/helm-charts
-helm install keycloak-release codecentric/keycloak -n  -f keycloak-values.yaml
+helm install keycloak bitnami/keycloak -n  -f keycloak-values.yaml
 kubectl apply -f api-deployment.yaml
 kubectl apply -f api-service.yaml
 kubectl apply -f web-deployment.yaml
