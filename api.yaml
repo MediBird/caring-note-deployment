@@ -16,12 +16,20 @@ spec:
       - name: caring-note-api
         image: bsh998/caring-note-api:latest
         env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "local"
           - name: SPRING_DATASOURCE_URL
             value: "jdbc:postgresql://postgresql.default.svc.cluster.local:5432/caring_note"
           - name: SPRING_DATASOURCE_USERNAME
             value: "cnAdmin"
           - name: SPRING_DATASOURCE_PASSWORD
             value: "caringNote2024!!"
+          - name: SPRINGDOC_SWAGGER_UI_PATH
+            value: "/swagger-ui"
+          - name: SPRINGDOC_SWAGGERUI_URL
+            value: "/v1/api-docs"
+          - name: SERVER_SERVLET_CONTEXT_PATH
+            value: "/api"
         ports:
           - containerPort: 8080
 
