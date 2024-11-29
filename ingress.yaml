@@ -15,7 +15,7 @@ spec:
   - host: caringnote.co.kr
     http:
       paths:
-      - path: /api
+      - path: /api/
         pathType: Prefix
         backend:
           service:
