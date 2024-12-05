@@ -29,6 +29,8 @@ spec:
             value: "/swagger-ui"
           - name: SPRINGDOC_SWAGGERUI_URL
             value: "/v1/api-docs"
+          - name: SPRINGDOC_API-DOCS_PATH
+            value: "/v1/api-docs"
           - name: SERVER_SERVLET_CONTEXT_PATH
             value: "/api/"
           - name: SPRING_JPA_HIBERNATE_DIALECT
