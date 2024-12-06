@@ -29,8 +29,16 @@ spec:
             value: "/swagger-ui"
           - name: SPRINGDOC_SWAGGERUI_URL
             value: "/v1/api-docs"
+          - name: SPRINGDOC_API-DOCS_PATH
+            value: "/v1/api-docs"
           - name: SERVER_SERVLET_CONTEXT_PATH
             value: "/api/"
+          - name: SPRING_JPA_HIBERNATE_DIALECT
+            value: "org.hibernate.dialect.PostgreSQLDialect"
+          - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+            value: "org.postgresql.Driver"
+          
+        
         ports:
           - containerPort: 8080
 
