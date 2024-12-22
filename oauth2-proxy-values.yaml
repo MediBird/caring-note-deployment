@@ -1,9 +1,9 @@
 config:
-  clientID: your-client-id
-  clientSecret: your-client-secret
+  clientID: caringnote
+  clientSecret: C1durQrc4nSq38wwr8uDQokwepWqDQGr
   provider: keycloak
-  redirectURL: https://caringnote.com/oauth2/callback
-  oidcIssuerURL: https://keycloak.caringnote.co.kr/auth/realms/caringnote
+  redirectURL: https://caringnote.com/keycloak/oauth2/callback
+  oidcIssuerURL: https://keycloak.caringnote.co.kr/keycloak/auth/realms/caringnote
 extraArgs:
   scope: "openid email profile"
 ingress:

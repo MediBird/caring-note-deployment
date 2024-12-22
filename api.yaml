@@ -37,8 +37,32 @@ spec:
             value: "org.hibernate.dialect.PostgreSQLDialect"
           - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
             value: "org.postgresql.Driver"
-          
-        
+          - name: SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI
+            value: "https://caringnote.co.kr/keycloak/realms/caringnote/protocol/openid-connect/certs"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_ISSUER_URI
+            value: "https://caringnote.co.kr/keycloak/realms/caringnote"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_AUTHORIZATION_URI
+            value: "https://caringnote.co.kr/keycloak/realms/caringnote/protocol/openid-connect/auth"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_TOKEN_URI
+            value: "https://caringnote.co.kr/keycloak/realms/caringnote/protocol/openid-connect/token"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_USER_INFO_URI
+            value: "https://caringnote.co.kr/keycloak/realms/caringnote/protocol/openid-connect/userinfo"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_JWK_SET_URI
+            value: "https://caringnote.co.kr/keycloak/realms/caringnote/protocol/openid-connect/certs"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_KEYCLOAK_USER_NAME_ATTRIBUTE
+            value: "preferred_username"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_CLIENT_ID
+            value: "caringnote"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_CLIENT_SECRET
+            value: "C1durQrc4nSq38wwr8uDQokwepWqDQGr"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_CLIENT_NAME
+            value: "caringnote"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_SCOPE
+            value: "openid,profile,email"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_AUTHORIZATION_GRANT_TYPE
+            value: "authorization_code"
+          - name: SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_KEYCLOAK_REDIRECT_URI
+            value: "https://caringnote.co.kr/keycloak/oauth2/callback"
         ports:
           - containerPort: 8080
 
@@ -54,3 +78,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+
