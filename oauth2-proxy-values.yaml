@@ -1,6 +1,6 @@
 config:
-  clientID: your-client-id
-  clientSecret: your-client-secret
+  clientID: oauth2-proxy
+  clientSecret: vdekkOYgapYXXlv3G5QKUQb5lqH2sLeC
   provider: keycloak
   redirectURL: https://caringnote.com/oauth2/callback
   oidcIssuerURL: https://keycloak.caringnote.co.kr/auth/realms/caringnote
