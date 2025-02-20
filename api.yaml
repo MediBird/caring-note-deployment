@@ -37,7 +37,16 @@ spec:
             value: "org.hibernate.dialect.PostgreSQLDialect"
           - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
             value: "org.postgresql.Driver"
-          
+          - name: SPRING_AI_OPENAI_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: api-secret
+                key: OPEN_AI_API_KEY
+          - name: NAVER_CLOVA_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: api-secret
+                key: CLOVA_API_KEY
         
         ports:
           - containerPort: 8080
