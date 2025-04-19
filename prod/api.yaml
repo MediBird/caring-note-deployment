@@ -7,6 +7,11 @@ spec:
   selector:
     matchLabels:
       app: caring-note-api
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
   template:
     metadata:
       labels:
@@ -18,13 +23,19 @@ spec:
         imagePullPolicy: Always
         env:
           - name: SPRING_PROFILES_ACTIVE
-            value: "local"
+            value: "prod"
           - name: SPRING_DATASOURCE_URL
             value: "jdbc:postgresql://postgresql.default.svc.cluster.local:5432/caring_note"
           - name: SPRING_DATASOURCE_USERNAME
-            value: "postgres"
+            valueFrom:
+              secretKeyRef:
+                name: api-secret
+                key: SPRING_DATASOURCE_USERNAME
           - name: SPRING_DATASOURCE_PASSWORD
-            value: "caringNote2024!!"
+            valueFrom:
+              secretKeyRef:
+                name: api-secret
+                key: SPRING_DATASOURCE_PASSWORD
           - name: SPRINGDOC_SWAGGER_UI_PATH
             value: "/swagger-ui"
           - name: SPRINGDOC_SWAGGERUI_URL
@@ -47,7 +58,7 @@ spec:
               secretKeyRef:
                 name: api-secret
                 key: CLOVA_API_KEY
-        
+
         ports:
           - containerPort: 8080
 
@@ -63,3 +74,4 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
+
