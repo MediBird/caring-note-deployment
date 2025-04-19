@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: SPRING_PROFILES_ACTIVE
-              value: 'prod'
+              value: 'staging'
             - name: SPRING_DATASOURCE_URL
               value: 'jdbc:postgresql://postgresql.default.svc.cluster.local:5432/caring_note_staging'
             - name: SPRING_DATASOURCE_USERNAME

@@ -17,6 +17,9 @@ spec:
         - name: caring-note-web
           image: bsh998/caring-note-web:latest
           imagePullPolicy: Always
+          env:
+            - name: VITE_KEYCLOAK_CLIENT_ID
+              value: 'caringnote-staging'
           ports:
             - containerPort: 80
 

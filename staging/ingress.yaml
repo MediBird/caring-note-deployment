@@ -14,10 +14,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - staging.caringnote.co.kr
+        - stg.caringnote.co.kr
       secretName: caringnote-tls
   rules:
-    - host: staging.caringnote.co.kr
+    - host: stg.caringnote.co.kr
       http:
         paths:
           - path: /api/
