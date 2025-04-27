@@ -69,13 +69,13 @@ cd ./caring-note-deployment
 
 * caringNote 는 SingleNode로 구성되어 있음.
 
-![deployment](./assets/deployment.png)
+![deployment](./docs/assets/deployment.png)
 
 
 
 ### K8S cluster 네트워크 구성도
 
-![network](./assets/network.png)
+![network](./docs/assets/network.png)
 
 ### 주의사항
 
