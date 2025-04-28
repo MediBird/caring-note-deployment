@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: caring-note-web
-        image: bsh998/caring-note-web:main
+        image: bsh998/caring-note-web:249e291f78dc893b1312e74b84d81ef386ae1652
         imagePullPolicy: Always
         ports:
           - containerPort: 80

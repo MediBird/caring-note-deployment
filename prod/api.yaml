@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: caring-note-api
-        image: bsh998/caring-note-api:main
+        image: bsh998/caring-note-api:848a52e06f2d8cdc4bf42ab12cd69f49eb94b5b5
         imagePullPolicy: Always
         env:
           - name: SPRING_PROFILES_ACTIVE
